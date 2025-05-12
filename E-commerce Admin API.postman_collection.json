@@ -1,0 +1,231 @@
+{
+	"info": {
+		"_postman_id": "1b258e64-5ba9-42a0-bd1f-01fab5898456",
+		"name": "E-commerce Admin API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "13788334",
+		"_collection_link": "https://winter-resonance-446576.postman.co/workspace/My-Workspace~3bf8691c-49a8-49a7-8bb7-5609b4df5e58/collection/13788334-1b258e64-5ba9-42a0-bd1f-01fab5898456?action=share&source=collection_link&creator=13788334"
+	},
+	"item": [
+		{
+			"name": "Ping",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/ping",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"ping"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Product",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"name\": \"Samsung Galaxy S24\",\n  \"category\": \"Electronics\",\n  \"price\": 1299.99\n}"
+				},
+				"url": {
+					"raw": "{{base_url}}/products",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Inventory",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"product_id\": 1,\n  \"stock_level\": 50\n}"
+				},
+				"url": {
+					"raw": "{{base_url}}/inventory",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"inventory"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Sale",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"product_id\": 1,\n  \"quantity\": 2,\n  \"total_amount\": 2599.98\n}\n"
+				},
+				"url": {
+					"raw": "{{base_url}}/sales",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"sales"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Sales (filtered)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/sales?category=Electronics&start_date=2024-01-01T00:00:00&end_date=2025-12-31T23:59:59",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"sales"
+					],
+					"query": [
+						{
+							"key": "category",
+							"value": "Electronics"
+						},
+						{
+							"key": "start_date",
+							"value": "2024-01-01T00:00:00"
+						},
+						{
+							"key": "end_date",
+							"value": "2025-12-31T23:59:59"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Revenue (monthly)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/revenue?period=daily",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"revenue"
+					],
+					"query": [
+						{
+							"key": "period",
+							"value": "daily"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Inventory",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/inventory",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"inventory"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Low Stock Alert",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/inventory/low-stock?threshold=90",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"inventory",
+						"low-stock"
+					],
+					"query": [
+						{
+							"key": "threshold",
+							"value": "90"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Inventory",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/inventory/2?stock_level=50",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"inventory",
+						"2"
+					],
+					"query": [
+						{
+							"key": "stock_level",
+							"value": "50"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://localhost:8000"
+		}
+	]
+}
