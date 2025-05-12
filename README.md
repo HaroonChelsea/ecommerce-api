@@ -44,7 +44,7 @@ $ git clone <repo_url>
 $ cd ecommerce-api
 
 # Create virtual environment
-$ pyenv virtualenv 3.11.9 ecommerce-api
+$ pyenv virtualenv 3.13.3 ecommerce-api
 $ pyenv activate ecommerce-api
 
 # Install dependencies
@@ -58,7 +58,7 @@ $ uvicorn app.main:app --reload
 
 ## 🧱 Tech Stack
 
-- Python 3.11 + FastAPI
+- Python 3.13.3 + FastAPI
 - SQLAlchemy ORM + MySQL
 - Pydantic (v2 compliant)
 - Uvicorn ASGI server
